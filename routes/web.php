@@ -3,6 +3,7 @@
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PostController;
 use Illuminate\Support\Facades\Route;
+use Ramsey\Uuid\Builder\FallbackBuilder;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,4 +22,12 @@ Route::prefix('blog')->group(function(){
     Route::get('/show', [PostController::class, 'show']);
     //URL like http://127.0.0.1:8000/blog/index
     Route::get('/{id}', [PostController::class, 'show'])->name('blog.show');
+    
+});
+
+    
+
+//fallback route
+Route::fallback(function(){
+    return view('fallback.index');
 });
