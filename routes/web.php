@@ -14,6 +14,6 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    $name = 'code with maruf';
-    return view('welcome', ['name' => $name]);
+    dd(config('services.mailgun.domain'));
+    return view('welcome');
 });
