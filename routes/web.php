@@ -14,6 +14,5 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    dd(config('services.mailgun.domain'));
     return view('welcome');
 });
