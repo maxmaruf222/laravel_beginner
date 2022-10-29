@@ -16,7 +16,13 @@ use Illuminate\Support\Facades\Route;
 */
 // // Get method 
 // Route::get('/blog', [PostController::class, 'index']);
-// Route::get('/blog/1', [PostController::class, 'show']);
+// Route::get('/blog/{id}', [PostController::class, 'show'])->where('id', '[a-zA-z]+');
+// Route::get('/blog/{id}/{name}', [PostController::class, 'show'])->where([
+//     'id'=>'[0-9]+',
+//     'name'=>'[a-zA-Z]+'
+// ]);
+
+Route::get('/blog/{id}/{name}', [PostController::class, 'show'])->whereNumber('id')->whereAlpha('name');
 
 // // Post 
 // Route::get('/blog/create', [PostController::class, 'create']);
@@ -24,7 +30,7 @@ use Illuminate\Support\Facades\Route;
 
 // // put and patch 
 // Route::get('/blog/edit/1', [PostController::class, 'edit']);
-// Route::patch('/blog/1', [PostController::class, 'update']);
+// Route::patch('/blog/{ id }', [PostController::class, 'update']);
 
 // // delete 
 // Route::delete('/blog/1', [PostController::class, 'destroy']);
@@ -37,7 +43,7 @@ use Illuminate\Support\Facades\Route;
 // Route::any('/blog', [PostController::class, 'index']);
 
 //view only return view file
-Route::view('/blog', 'index', ['name' =>'Maruf Hassan']);
+// Route::view('/blog', 'index', ['name' =>'Maruf Hassan']);
 
 
 // Route for invoke method 
