@@ -16,3 +16,4 @@ use Illuminate\Support\Facades\Route;
 */
 // // Get method 
 Route::get('/blog', [PostController::class, 'index']);
+Route::get('/article/{id}', [PostController::class, 'show'])->name('blog.show');
